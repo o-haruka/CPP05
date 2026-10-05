@@ -33,9 +33,6 @@ PresidentialPardonForm::~PresidentialPardonForm() {}
 // ----------------------------------------------
 // * METHOD
 // ----------------------------------------------
-const std::string& PresidentialPardonForm::getTarget() const {
-    return target_;
-}
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
     // 1. 権限チェック
