@@ -39,6 +39,7 @@ AForm& AForm::operator=(const AForm& other){
 }
 
 AForm::~AForm() {}
+
 // ----------------------------------------------
 // * METHOD
 // ----------------------------------------------
@@ -66,7 +67,6 @@ int AForm::getGradeToExecute(void) const
 // * MEMBER FUNCTIONS
 void AForm::beSigned(const Bureaucrat& bureaucrat)
 {
-    // 官僚の等級が、サインに必要な等級よりも数値が大きい（＝等級が低い）場合は例外を投げる
     if(bureaucrat.getGrade() > gradeToSign_)
         throw GradeTooLowException();
     isSigned_ = true;

@@ -39,6 +39,7 @@ AForm& AForm::operator=(const AForm& other){
 }
 
 AForm::~AForm() {}
+
 // ----------------------------------------------
 // * METHOD
 // ----------------------------------------------
@@ -66,7 +67,6 @@ int AForm::getGradeToExecute(void) const
 // * MEMBER FUNCTIONS
 void AForm::beSigned(const Bureaucrat& bureaucrat)
 {
-    // 官僚の等級が、サインに必要な等級よりも数値が大きい（＝等級が低い）場合は例外を投げる
     if(bureaucrat.getGrade() > gradeToSign_)
         throw GradeTooLowException();
     isSigned_ = true;
@@ -75,16 +75,19 @@ void AForm::beSigned(const Bureaucrat& bureaucrat)
 // * EXCEPTION
 const char* AForm::GradeTooHighException::what() const throw()
 {
-    return RED "Error: " RESET "Form grade is too high!";
+    return RED "Error: " RESET
+            "Form grade is too high!";
 }
 
 const char* AForm::GradeTooLowException::what() const throw()
 {
-    return RED "Error: " RESET "Form grade is too low!";
+    return  RED "Error: " RESET 
+            "Form grade is too low!";
 }
 
 const char* AForm::NotSignedException::what() const throw() {
-    return RED "Error: " RESET "Form is not signed yet!";
+    return  RED "Error: " RESET
+            "Form is not signed yet!";
 }
 
 // ----------------------------------------------

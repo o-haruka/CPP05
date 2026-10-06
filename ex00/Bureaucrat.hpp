@@ -8,7 +8,7 @@
 class Bureaucrat
 {
     private:
-        const std::string name_; //!定数ってどう指定するんだっけ？ → constつける
+        const std::string name_;
         int grade_;
 
     public:
@@ -24,7 +24,6 @@ class Bureaucrat
         void decrementGrade();
 
         // Exception classes
-        // throw() は「この関数自体は例外を投げない」というC++98の仕様
         class GradeTooHighException : public std::exception {
             public:
                 virtual const char* what() const throw();
@@ -34,9 +33,8 @@ class Bureaucrat
             public:
                 virtual const char* what() const throw();
         };
-    };
+};
 
-// std::ostream& operator<<(const std::string &name, const int &grade);
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif

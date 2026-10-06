@@ -63,10 +63,9 @@ void Bureaucrat::decrementGrade()
 void Bureaucrat::signForm(Form& form)
 {
     try{
-        // FormのbeSignedを呼び出し、自分自身(*this)を渡す
         form.beSigned(*this);
 
-        // 例外が投げられず成功した場合の出力
+        // 成功
         std::cout   << this->getName()
                     << " signed "
                     << form.getName()
@@ -78,7 +77,7 @@ void Bureaucrat::signForm(Form& form)
                     << " couldn't sign "
                     << form.getName()
                     << " because "
-                    << e.what() //ここでのeはFormのもの？？ -> YES
+                    << e.what()
                     << "\n";
     }
 }

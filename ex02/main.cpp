@@ -5,10 +5,11 @@
 #include "../Color.hpp"
 
 #include <iostream>
-#include <cstdlib> // 追加: rand, srand用
-#include <ctime>   // 追加: time用
+#include <cstdlib>
+#include <ctime>
 
 int main() {
+    // 乱数のシードを現在時刻で初期化
     std::srand(std::time(NULL));
 
     std::cout << CYAN << "=======================================" << RESET << "\n";
@@ -57,7 +58,7 @@ int main() {
         Bureaucrat boss("BOSS", 1);       // 全てできる
         Bureaucrat mid("MID", 50);        // サインはできるが実行はできない
         Bureaucrat newbie("NEWBIE", 150); // 何もできない
-        RobotomyRequestForm form("Bender");
+        RobotomyRequestForm form("Usagi");
 
         std::cout << "--- 初期状態のフォーム ---\n";
         std::cout << form << "\n\n";
@@ -94,10 +95,11 @@ int main() {
     std::cout << CYAN << "     TEST 3: PresidentialPardonForm        " << RESET << "\n";
     std::cout << CYAN << "=======================================" << RESET << "\n";
     try {
+        // PresidentialPardonFormの要件: サイン25, 実行5
         Bureaucrat boss("BOSS", 1);       // 全てできる
         Bureaucrat mid("MID", 20);        // サイン(25)はできるが実行(5)はできない
         Bureaucrat newbie("NEWBIE", 150); // 何もできない
-        PresidentialPardonForm form("Ford Prefect");
+        PresidentialPardonForm form("chikawa");
 
         std::cout << "--- 初期状態のフォーム ---\n";
         std::cout << form << "\n\n";

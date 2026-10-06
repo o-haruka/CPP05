@@ -1,11 +1,13 @@
 #include "Intern.hpp"
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
-#include <iostream>
 #include "../Color.hpp"
 
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
 int main() {
-    //! 通常 main() で一度だけ呼び出します。理由は、srand() が RobotomyRequestForm専用の設定ではなく、プロセス全体の rand() の初期化だから
     std::srand(std::time(NULL));
 
     std::cout << CYAN << "=======================================" << RESET << "\n";
@@ -20,7 +22,7 @@ int main() {
     rrf = someRandomIntern.makeForm("robotomy request", "Bender"); 
     if (rrf) {
         std::cout << *rrf << "\n";
-        delete rrf; // メモリリークを防ぐためにdeleteが必要
+        delete rrf;
     }
     std::cout << "\n";
 

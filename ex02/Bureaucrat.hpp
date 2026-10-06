@@ -11,7 +11,7 @@ class AForm;
 class Bureaucrat
 {
     private:
-        const std::string name_; //!定数ってどう指定するんだっけ？ → constつける
+        const std::string name_;
         int grade_;
 
     public:
@@ -28,7 +28,7 @@ class Bureaucrat
         void decrementGrade();
 
         void signForm(AForm& form);
-        void executeForm(AForm const & form) const;
+        void executeForm(AForm const& form) const;
 
         // Exception classes
         class GradeTooHighException : public std::exception {
@@ -40,9 +40,8 @@ class Bureaucrat
             public:
                 virtual const char* what() const throw();
         };
-    };
+};
 
-// std::ostream& operator<<(const std::string &name, const int &grade);
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif

@@ -9,15 +9,14 @@ Bureaucrat::Bureaucrat()
         grade_(150)
 {}
 
-//throw GradeTooHighException() で、インスタンスを作って、投げている。catchで受け取る
 Bureaucrat::Bureaucrat(const std::string& name, int grade)
     :   name_(name),
         grade_(grade)
 {
     if (grade < 1)
-        throw GradeTooHighException(); // 1より小さければ高すぎる例外を投げる
+        throw GradeTooHighException();
     if (grade > 150)
-        throw GradeTooLowException();  // 150より大きければ低すぎる例外を投げる
+        throw GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other)

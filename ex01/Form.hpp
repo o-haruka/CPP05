@@ -4,9 +4,8 @@
 #include <exception>
 #include <string>
 #include <ostream>
-// #include "Bureaucrat.hpp" // 外します
 
-class Bureaucrat; // !循環参照を防ぐための前方宣言
+class Bureaucrat;
 
 class Form{
     private:
@@ -16,7 +15,6 @@ class Form{
         const int gradeToExecute_;
     public:
         Form();
-        //!name_, gradeToSign_, gradeToExecute_ は const 指定されているため、後から代入演算子などで値を変更することができません。そのため、初期化リストを用いてこれらの値を設定するための引数付きコンストラクタ
         Form(const std::string& name, int gradeToSign, int gradeToExecute);
         Form(const Form& other);
         Form &operator=(const Form& other);

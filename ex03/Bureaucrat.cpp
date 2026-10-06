@@ -64,22 +64,19 @@ void Bureaucrat::decrementGrade()
 void Bureaucrat::signForm(AForm& form)
 {
     try{
-        // FormのbeSignedを呼び出し、自分自身(*this)を渡す
         form.beSigned(*this);
 
-        // 例外が投げられず成功した場合の出力
         std::cout   << this->getName()
                     << " signed "
                     << form.getName()
                     << "\n";
     }
     catch(std::exception& e){
-        // beSigned内で例外が投げられた場合の出力
         std::cout   << this->getName()
                     << " couldn't sign "
                     << form.getName()
                     << " because "
-                    << e.what() //ここでのeはFormのもの？？
+                    << e.what()
                     << "\n";
     }
 }
@@ -104,11 +101,11 @@ void Bureaucrat::executeForm(AForm const & form) const
 
 //* Exception classes
 const char* Bureaucrat::GradeTooHighException::what() const throw(){
-    return RED "Error: " RESET "Grade is too high! (Highest possible grade is 1)";
+    return  RED "Error: " RESET "Grade is too high! (Highest possible grade is 1)";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw(){
-    return RED "Error: " RESET "Grade is too low! (Lowest possible grade is 150)";
+    return  RED "Error: " RESET "Grade is too low! (Lowest possible grade is 150)";
 }
 
 // ----------------------------------------------

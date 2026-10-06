@@ -1,8 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 #include <iostream>
-#include <cstdlib> // rand, srand用
-#include <ctime>   // time用
+#include <cstdlib>
 
 // ----------------------------------------------
 // * OCF
@@ -51,9 +50,6 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
     std::cout << "gagagagagagagagagagagagaga...... (Drilling noises)" << "\n";
 
     // 3. 50%の確率で成功か失敗かを判定
-    // 乱数のシードを現在時刻で初期化 (厳密には毎回呼ばない方が良いですが簡略化しています)
-    // std::srand(std::time(NULL)); //! main関数に移動
-    
     if (std::rand() % 2 == 0) {
         std::cout   << GREEN
                     << target_

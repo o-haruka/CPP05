@@ -39,6 +39,7 @@ Form& Form::operator=(const Form& other){
 }
 
 Form::~Form() {}
+
 // ----------------------------------------------
 // * METHOD
 // ----------------------------------------------
@@ -66,21 +67,10 @@ int Form::getGradeToExecute(void) const
 // * MEMBER FUNCTIONS
 void Form::beSigned(const Bureaucrat& bureaucrat)
 {
-    // 官僚の等級が、サインに必要な等級よりも数値が大きい（＝等級が低い）場合は例外を投げる
     if(bureaucrat.getGrade() > gradeToSign_)
         throw GradeTooLowException();
     isSigned_ = true;
 }
-//結論から言うと、throw GradeTooLowException(); のままで全く問題ありません（Form:: は省略可能です）！
-
-//【解説：どの階層の例外が投げられているのか？】
-//C++の仕様では、クラスのメンバ関数（今回は Form::beSigned）の内部にいるとき、コンパイラはまず自分自身のクラス（Form）のスコープから名前を探します。
-
-//そのため、単に GradeTooLowException() と書くだけで、自動的に Form クラス内に定義した Form::GradeTooLowException が選ばれて投げられます。
-
-//逆に Form:: と明記しなければならないのは、main.cpp のように Form クラスの外の世界 からこの例外を指定する場合（例えば catch (Form::GradeTooLowException& e) と書くとき）だけです。メンバ関数の中では省略するのが一般的でスマートな書き方です。
-
-//---------------------------------------------------------
 
 // * EXCEPTION
 const char* Form::GradeTooHighException::what() const throw()

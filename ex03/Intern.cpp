@@ -56,7 +56,7 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target) 
     // 2. 配列をループで回し、一致する名前を探す
     for (int i = 0; i < 3; i++) {
         if (formName == formNames[i]) {
-            std::cout << "Intern creates " << formName << std::endl;
+            std::cout << "Intern creates " << formName << "\n";
             // 配列から対応する関数ポインタを呼び出して実行
             return (this->*formMakers[i])(target);
         }
@@ -64,7 +64,7 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target) 
 
     // 4. フォーム名が存在しない場合はエラーメッセージを出力
     std::cout   << RED << "Error: " << RESET 
-                <<"Intern cannot create form '"
+                << "Intern cannot create form '"
                 << formName 
                 << "' because it does not exist." << "\n";
     
